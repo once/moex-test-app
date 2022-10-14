@@ -2,11 +2,13 @@
 using Microsoft.Xrm.Sdk.Query;
 using MOEX.TestApp.Plugins.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace MOEX.TestApp.Plugins
 {
     public class ContactValidator
     {
+        private static readonly Regex mobilePhoneFormat = new Regex(@"\+7\d{10}$");
         private IOrganizationService service;
 
         public ContactValidator(IOrganizationService service)
@@ -14,7 +16,7 @@ namespace MOEX.TestApp.Plugins
             this.service = service;
         }
 
-        public bool PhoneIsValid(string phone) => phone.StartsWith(Constants.MobilePhonePrefix);
+        public bool PhoneIsValid(string phone) => mobilePhoneFormat.IsMatch(phone);
 
         public bool EmailIsValid(string email) => new EmailAddressAttribute().IsValid(email);
 

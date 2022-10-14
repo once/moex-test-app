@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MOEX.TestApp.Plugins
+﻿namespace MOEX.TestApp.Plugins
 {
     internal static class Constants
     {
-        public const string MobilePhonePrefix = "+7";
         internal static class Fields
         {
             public const string ContactId = "contactid";
