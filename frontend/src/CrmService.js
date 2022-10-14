@@ -3,7 +3,7 @@ export default class CrmService {
         this.Xrm = window.Xrm;
     }
 
-    // adding 'id' field as required by MUI DataGrid, so using this helper method
+    // adding 'id' field as required by MUI DataGrid, so using this helper method to init 'id' field with 'accountid' or 'contactid'
     AddGridId(objectArray, mappedField) {
         return objectArray.map(obj => ({ ...obj, id: obj[mappedField]}))
     }
